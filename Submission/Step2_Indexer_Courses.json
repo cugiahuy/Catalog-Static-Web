@@ -1,0 +1,48 @@
+{
+  "@odata.context": "https://trainingcatalog.search.windows.net/$metadata#indexers/$entity",
+  "@odata.etag": "\"0x8DB00E3184018EC\"",
+  "name": "course-indexer3",
+  "description": "",
+  "dataSourceName": "coursetest",
+  "skillsetName": "course-skillset3",
+  "targetIndexName": "course-index3",
+  "disabled": null,
+  "schedule": null,
+  "parameters": {
+    "batchSize": null,
+    "maxFailedItems": 0,
+    "maxFailedItemsPerBatch": 0,
+    "base64EncodeKeys": null,
+    "configuration": {}
+  },
+  "fieldMappings": [
+    {
+      "sourceFieldName": "Key",
+      "targetFieldName": "Key",
+      "mappingFunction": {
+        "name": "base64Encode",
+        "parameters": null
+      }
+    }
+  ],
+  "outputFieldMappings": [
+    {
+      "sourceFieldName": "/document/content/people",
+      "targetFieldName": "people"
+    },
+    {
+      "sourceFieldName": "/document/content/organizations",
+      "targetFieldName": "organizations"
+    },
+    {
+      "sourceFieldName": "/document/content/locations",
+      "targetFieldName": "locations"
+    },
+    {
+      "sourceFieldName": "/document/content/keyphrases",
+      "targetFieldName": "keyphrases"
+    }
+  ],
+  "cache": null,
+  "encryptionKey": null
+}

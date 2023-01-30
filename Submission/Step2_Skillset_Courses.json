@@ -1,0 +1,81 @@
+{
+  "@odata.context": "https://trainingcatalog.search.windows.net/$metadata#skillsets/$entity",
+  "@odata.etag": "\"0x8DB00E302B02CF9\"",
+  "name": "course-skillset3",
+  "description": "Skillset created from the portal. skillsetName: course-skillset3; contentField: PartitionKey; enrichmentGranularity: document; knowledgeStoreStorageAccount: ;",
+  "skills": [
+    {
+      "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
+      "name": "#1",
+      "description": null,
+      "context": "/document",
+      "categories": [
+        "Product",
+        "PhoneNumber",
+        "Organization",
+        "IPAddress",
+        "Address",
+        "PersonType",
+        "Quantity",
+        "Email",
+        "Location",
+        "URL",
+        "Event",
+        "DateTime",
+        "Skill",
+        "Person"
+      ],
+      "defaultLanguageCode": "en",
+      "minimumPrecision": null,
+      "modelVersion": null,
+      "inputs": [
+        {
+          "name": "text",
+          "source": "/document"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "persons",
+          "targetName": "people"
+        },
+        {
+          "name": "organizations",
+          "targetName": "organizations"
+        },
+        {
+          "name": "locations",
+          "targetName": "locations"
+        }
+      ]
+    },
+    {
+      "@odata.type": "#Microsoft.Skills.Text.KeyPhraseExtractionSkill",
+      "name": "#2",
+      "description": null,
+      "context": "/document",
+      "defaultLanguageCode": "en",
+      "maxKeyPhraseCount": null,
+      "modelVersion": null,
+      "inputs": [
+        {
+          "name": "text",
+          "source": "/document"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "keyPhrases",
+          "targetName": "keyphrases"
+        }
+      ]
+    }
+  ],
+  "cognitiveServices": {
+    "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
+    "description": "/subscriptions/81eda4e8-6834-4011-bfb4-add45e554353/resourceGroups/DentistVirtualAssistant/providers/Microsoft.CognitiveServices/accounts/trainingcatalog-cogservice",
+    "key": "ce6bfe416013479c8fd4e014b656b7e9"
+  },
+  "knowledgeStore": null,
+  "encryptionKey": null
+}
